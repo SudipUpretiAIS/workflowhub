@@ -158,3 +158,51 @@ npm run build
 
 \- frontend/: React application, package.json, and package-lock.json
 
+## Environment configuration
+
+
+
+Before starting the backend, copy the example file:
+
+
+
+```bat
+
+copy backend\\.env.example backend\\.env
+
+```
+
+
+
+In backend/.env, replace DJANGO\_SECRET\_KEY with a locally generated random key.
+
+Configure DJANGO\_DEBUG and DJANGO\_ALLOWED\_HOSTS for your environment.
+
+Django loads this file using python-dotenv.
+
+
+
+Before starting the frontend:
+
+
+
+```bat
+
+copy frontend\\.env.example frontend\\.env
+
+```
+
+
+
+VITE\_API\_URL sets the backend API base URL.
+
+Restart the frontend development server after changing this value.
+
+Frontend environment variables are public; never put secrets in them.
+
+
+
+Local .env files are ignored by Git.
+
+Commit only .env.example files containing placeholders.
+
