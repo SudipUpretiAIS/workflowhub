@@ -48,12 +48,6 @@ git clone https://github.com/SudipUpretiAIS/workflowhub.git
 cd workflowhub
 ```
 
-Until the Docker Compose changes are merged into `main`, select
-the branch that contains the complete local setup:
-
-```bash
-git switch feature/docker-compose
-```
 
 ### 2. Configure the backend environment
 
