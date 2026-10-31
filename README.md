@@ -236,7 +236,7 @@ Create and start the containers:
 
 ```bat
 
-docker run -d --name workflowhub-backend --env-file backend/.env -p 127.0.0.1:8000:8000 workflowhub-backend:local sh -c "python manage.py migrate \&\& python manage.py runserver 0.0.0.0:8000"
+docker run -d --name workflowhub-backend --env-file backend/.env -p 127.0.0.1:8000:8000 workflowhub-backend:local sh -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
 
 docker run -d --name workflowhub-frontend -p 127.0.0.1:5173:80 workflowhub-frontend:local
 
