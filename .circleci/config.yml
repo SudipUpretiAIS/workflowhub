@@ -1,0 +1,30 @@
+version: 2.1
+
+jobs:
+  docker-build:
+    docker:
+      - image: cimg/base:stable
+
+    steps:
+      - checkout
+      - setup_remote_docker
+
+      - run:
+          name: Build backend Docker image
+          command: docker build -t workflowhub-backend:circleci ./backend
+
+      - run:
+          name: Build frontend Docker image
+          command: |
+            docker build \
+              --build-arg VITE_API_URL=http://127.0.0.1:8000/api \
+              -t workflowhub-frontend:circleci ./frontend
+
+      - run:
+          name: Show built images
+          command: docker image ls --filter "reference=workflowhub-*"
+
+workflows:
+  build-images:
+    jobs:
+      - docker-build
